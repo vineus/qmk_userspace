@@ -285,7 +285,7 @@ bool module_post_init_kb(void) {
 bool display_module_housekeeping_task_kb(bool second_display) {
     if(!display_module_housekeeping_task_user(second_display)) { return false; }
 
-    if(second_display) {
+    if(!second_display) {
         static uint32_t last_draw = 0;
         static bool second_display_set = false;
         static uint32_t previous_matrix_activity_time = 0;
@@ -312,7 +312,7 @@ bool display_module_housekeeping_task_kb(bool second_display) {
     }
 
     // Update display information (layers, numlock, etc.)
-    if(!second_display) {
+    if(second_display) {
         update_display();
     }
 
