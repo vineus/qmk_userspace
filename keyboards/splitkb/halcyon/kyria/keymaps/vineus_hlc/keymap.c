@@ -36,9 +36,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Base Layer: QWERTY
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
+ * |  Esc   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |Esc/Shft|   A  |   S  |  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
+ * |Tab/Shft|   A  |   S  |  D   |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * | LCtrl  |   Z  |   X  |   C  |   V  |   B  | Left | Right|  |  Up  | Down |   N  |   M  | ,  < | . >  | /  ? | Enter  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
@@ -47,8 +47,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT_split_3x6_5_hlc(
-      KC_TAB, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                                  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-      MT(MOD_LSFT, KC_ESC) ,   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_LSFT, KC_QUOT),
+      KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                                  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+      MT(MOD_LSFT, KC_TAB) ,   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_LSFT, KC_QUOT),
       KC_LCTL,  KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_LEFT,   KC_RGHT,       KC_UP,  KC_DOWN, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
                            KC_HYPR, KC_LGUI, LOPT_T(KC_LSFT), LOWER, KC_SPC,       KC_SPC, RAISE, MT(MOD_RALT, KC_GRV),  KC_DEL, KC_EMOJI,
       KC_CPYP, KC_NO,  KC_NO, KC_NO, KC_NO,                                                                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
@@ -194,6 +194,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                         keymap_key_to_keycode(0, (keypos_t){col,row}) == KC_S ||
                         keymap_key_to_keycode(0, (keypos_t){col,row}) == KC_P ||
                         keymap_key_to_keycode(0, (keypos_t){col,row}) == KC_W ||
+                        keymap_key_to_keycode(0, (keypos_t){col,row}) == KC_R ||
                         keymap_key_to_keycode(0, (keypos_t){col,row}) == KC_L) {
                         rgb_matrix_set_color(index, RGB_PURPLE);
                     }
